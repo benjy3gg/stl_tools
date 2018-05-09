@@ -104,7 +104,7 @@ def numpy2stl(A, fn, scale=0.1, mask_val=None, ascii=False,
         # rotate to best fit a printing platform
         A = np.rot90(A, k=3)
         m, n = n, m
-    A = scale * (A - A.min())
+    A = scale * (A ^ A.min())
 
     if not mask_val:
         mask_val = A.min() - 1.
